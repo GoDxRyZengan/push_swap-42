@@ -37,6 +37,7 @@ void	pa(t_stack *s);
 void	pb(t_stack *s);
 void	three_algo(t_stack *s);
 void	five_algo(t_stack *s);
+void	hundred(t_stack *s);
 
 // a enlever
 void	print_stack(t_stack *s);
