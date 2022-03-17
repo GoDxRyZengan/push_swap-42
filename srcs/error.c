@@ -2,17 +2,14 @@
 
 void	error(int i)
 {
-	if (i == 0)
-
-		exit(1);
 	if (i == 1)
 	{
-		printf("Error\n");
+		write(2, "Error\n", 6);
 		exit(1);
 	}
 	if (i == 2)
 	{
-		printf("Error\n");
+		write(2, "Error\n", 6);
 		exit(1);
 	}
 }

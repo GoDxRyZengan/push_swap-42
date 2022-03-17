@@ -5,7 +5,7 @@ int     main(int argc, char **argv)
     t_stack s;
 
     if (argc < 2)
-        error(0);
+        return (0);
     if ((check_arg(argv)) == 1)
         error(1);
     s.stack_a = (create_stack(argc));
@@ -25,6 +25,3 @@ int     main(int argc, char **argv)
     free(s.stack_a);
     return (0);
 }
-
-// 0 et -0 = Erreur ?
-// j vais dire que oui, a verif

@@ -36,6 +36,8 @@ int	is_int(char *str)
 	int	i;
 
 	i = 0;
+    if (ft_strlen(str) > 11)
+        return (1);
     if (ft_strlen(str) > 1)
     {
         if ((str[i] == '-') || (str[i] == '+'))
@@ -61,7 +63,7 @@ int     check_arg(char **argv)
     while(argv[i])
     {
         if (is_int(argv[i]) == 1)
-            return 1;
+            return (1);
         i++;
     }
     i = 1;

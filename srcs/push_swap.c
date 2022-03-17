@@ -30,7 +30,7 @@ void	push_swap(t_stack *s)
 		return ;
 	if (s->nb_a == 2)
 		sa(s);
-	if (s->nb_a == 3)
+	else if (s->nb_a == 3)
 		three_algo(s);
 	else if (s->nb_a <= 5)
 		five_algo(s);

@@ -58,6 +58,7 @@ int	m_to_r_b(t_stack *s, int index)
 		}
 		i++;
 	}
+//	printf("smaller bigger%d\n", i);
 	if (s->nb_b == i)
 	{
 		i = find_smallest(s);
@@ -75,6 +76,7 @@ int	m_to_r_b(t_stack *s, int index)
 	else if (i > s->nb_b / 2)
 	{
 		i = s->nb_b - i;
+//		printf("Final i :%d / %d \n", i, s->nb_b);
 		s->tmp = 'b';
 	}
 	else
@@ -116,7 +118,7 @@ void	who_to_m_b(t_stack *s)
 
 void	a_move(t_stack *s)
 {
-	if (s->to_m < (s->nb_a / 2))
+	if (s->to_m < (s->nb_a / 2) || s->to_m == (s->nb_a / 2))
 	{
 		while (s->to_m > 0)
 		{
@@ -144,7 +146,7 @@ void	a_move(t_stack *s)
 
 void	b_move(t_stack *s)
 {
-	if (s->to_m < (s->nb_a / 2))
+	if (s->to_m < (s->nb_a / 2) || s->to_m == (s->nb_a / 2))
 	{
 		while (s->to_m > 0)
 		{
@@ -254,11 +256,11 @@ void	new_algo(t_stack *s)
 	int i;
 
 	pb(s);
-	print_stack(s);
 	while (s->nb_a > 0)
 	{
 		s->m = 0;
 		who_to_m_b(s);
+		printf("%d / %d / %c\n", s->to_m, s->m, s->how);
 		if (s->how == 'a')
 			a_move(s);
 		else if (s->how == 'c')
@@ -267,10 +269,14 @@ void	new_algo(t_stack *s)
 			d_move(s);
 		else
 			b_move(s);
+		print_stack(s);
 	}
+//	print_stack(s);
 	while (s->nb_b > 0)
 		pa(s);
 	i = find_smallest_a(s);
+	s->how = s->tmp;
+//	print_stack(s);
 	if (i < (s->nb_a / 2))
 	{
 		while (i > 0)
@@ -289,3 +295,4 @@ void	new_algo(t_stack *s)
 	}
 	print_stack(s);
 }
+// a 5 nb et moins ca chie quand ca passe de a -> b
