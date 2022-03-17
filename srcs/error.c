@@ -3,13 +3,11 @@
 void	error(int i)
 {
 	if (i == 0)
-	{
-		printf("Error\nArg error\n");
+
 		exit(1);
-	}
 	if (i == 1)
 	{
-		printf("Error\nNb error\n");
+		printf("Error\n");
 		exit(1);
 	}
 	if (i == 2)

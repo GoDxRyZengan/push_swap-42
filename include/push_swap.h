@@ -11,13 +11,17 @@ typedef	struct	s_stack
 	int	*stack_b;
 	int	nb_a;
 	int	nb_b;
+	int	to_m;
+	char	tmp;
+	char	how;
+	int	m;
 }				t_stack;
 
-int     check_arg(char** argv);
-int     *create_stack(int argc);
-int     *fill_stack(char **argv, int *stack);
+int	check_arg(char** argv);
+int	*create_stack(int argc);
+int	*fill_stack(char **argv, int *stack);
 long int     ft_atoi(const char *str);
-int     ft_isdigit(int c);
+int	ft_isdigit(int c);
 int check_duplicate(char **argv, char *str, int i);
 int	ft_strcmp(const char *s1, const char *s2);
 int	ft_strlen(char const *str);
@@ -37,7 +41,9 @@ void	pa(t_stack *s);
 void	pb(t_stack *s);
 void	three_algo(t_stack *s);
 void	five_algo(t_stack *s);
-void	hundred(t_stack *s);
+//void	hundred_algo(t_stack *s);
+void	new_algo(t_stack *s);
+int	check_smaller(t_stack *s, int j);
 
 // a enlever
 void	print_stack(t_stack *s);

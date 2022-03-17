@@ -2,18 +2,20 @@
 
 void	print_stack(t_stack *s)
 {
-	int i = 0;
-    while (i < (s->nb_a))
+	int k = 0;
+    printf("A :");
+    while (k < (s->nb_a))
     {
-        printf("%d ", s->stack_a[i]);
-        i++;
+        printf("%d ", s->stack_a[k]);
+        k++;
     }
-    i = 0;
     printf("\n");
-    while (i < (s->nb_b))
+    k = 0;
+    printf("B :");
+    while (k < (s->nb_b))
     {
-        printf("%d ", s->stack_b[i]);
-        i++;
+        printf("%d ", s->stack_b[k]);
+        k++;
     }
-	printf("\nnb_a :%d --- nb_b :%d\nNEXT\n", s->nb_a, s->nb_b);
+   printf("\n");
 }

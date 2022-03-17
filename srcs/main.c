@@ -21,13 +21,6 @@ int     main(int argc, char **argv)
     s.nb_a = argc - 1;
     s.nb_b = 0;
     push_swap(&s);
-    int i = s.nb_a - 1;
-    while (i >= 0)
-    {
-        printf("%d ", s.stack_a[i]);
-        i--;
-    }
-    printf("\n");
     free(s.stack_b);
     free(s.stack_a);
     return (0);
