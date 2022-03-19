@@ -118,7 +118,8 @@ void	who_to_m_b(t_stack *s)
 
 void	a_move(t_stack *s)
 {
-	if (s->to_m < (s->nb_a / 2) || s->to_m == (s->nb_a / 2))
+//	if (s->to_m < (s->nb_a / 2) || s->to_m == (s->nb_a / 2))
+	if (s->to_m < (s->nb_a / 2))
 	{
 		while (s->to_m > 0)
 		{
@@ -146,7 +147,8 @@ void	a_move(t_stack *s)
 
 void	b_move(t_stack *s)
 {
-	if (s->to_m < (s->nb_a / 2) || s->to_m == (s->nb_a / 2))
+//	if (s->to_m < (s->nb_a / 2) || s->to_m == (s->nb_a / 2))
+	if (s->to_m < (s->nb_a / 2))
 	{
 		while (s->to_m > 0)
 		{
@@ -251,16 +253,47 @@ int	find_smallest_a(t_stack *s)
 	return (res);
 }
 
+int	find_biggest_spe(t_stack *s, int index)
+{
+	int	i;
+	int	tmp;
+	int	res;
+
+	res = 0;
+	i = 0;
+	while (i < s->nb_b)
+	{
+		if (s->stack_a[index] > s->stack_b[i])
+		{
+			tmp = s->stack_b[i];
+			res = i;
+			break;
+		}
+		i++;
+	}
+	i = 0;
+	while (i < s->nb_b)
+	{
+		if ((s->stack_a[index] > s->stack_b[i]) && (tmp < s->stack_b[i]))
+		{
+			tmp = s->stack_b[i];
+			res = i;
+		}
+		i++;
+	}
+	return (res);
+}
+
 void	new_algo(t_stack *s)
 {
 	int i;
 
 	pb(s);
-	while (s->nb_a > 0)
+	while (s->nb_a > 1)
 	{
 		s->m = 0;
 		who_to_m_b(s);
-		printf("%d / %d / %c\n", s->to_m, s->m, s->how);
+//		printf("%d / %d / %c\n", s->to_m, s->m, s->how);
 		if (s->how == 'a')
 			a_move(s);
 		else if (s->how == 'c')
@@ -269,7 +302,25 @@ void	new_algo(t_stack *s)
 			d_move(s);
 		else
 			b_move(s);
-		print_stack(s);
+//		print_stack(s);
+	}
+	i = find_biggest_spe(s, 0);
+//	printf("i = %d\n", 1);
+	if (i > s->nb_b / 2)
+	{
+		while (i < s->nb_b)
+		{
+			rrb(s);
+			i++;
+		}
+	}
+	else
+	{
+		while (i > 0)
+		{
+			rb(s);
+			i--;
+		}
 	}
 //	print_stack(s);
 	while (s->nb_b > 0)
@@ -293,6 +344,7 @@ void	new_algo(t_stack *s)
 			i++;
 		}
 	}
-	print_stack(s);
+//	print_stack(s);
 }
 // a 5 nb et moins ca chie quand ca passe de a -> b
+// ok c est bon gere le dernier de a -> b
