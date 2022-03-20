@@ -10,9 +10,10 @@ SRCS =	./srcs/main.c \
 		./srcs/cmd_fct/reverse_cmd.c \
 		./srcs/algo/easy_algo.c \
 		./srcs/algo/new_algo.c \
+		./srcs/algo/algo_utils.c \
+		./srcs/algo/algo_utils_2.c \
+		./srcs/algo/algo_utils_3.c \
 		./print_stack.c \
-##		./srcs/algo/hundred_algo.c \
-
 
 OBJS	= ${SRCS:.c=.o}
 

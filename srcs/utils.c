@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hucoulon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/20 18:14:03 by hucoulon          #+#    #+#             */
+/*   Updated: 2022/03/20 18:14:31 by hucoulon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../include/push_swap.h"
 
 long int	ft_atoi(const char *str)
 {
-	long int a;
-	long int res;
-	long int neg;
+	long int	a;
+	long int	res;
+	long int	neg;
 
 	neg = 1;
 	res = 0;

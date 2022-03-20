@@ -1,97 +1,147 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algo_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hucoulon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/20 23:03:11 by hucoulon          #+#    #+#             */
+/*   Updated: 2022/03/20 23:03:13 by hucoulon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "./../../include/push_swap.h"
 
-void	do_a(t_stack *s)
+int	find_smallest_a(t_stack *s)
 {
-	while (s->r.ind < s->nb_b)
+	int	i;
+	int	res;
+	int	tmp;
+
+	tmp = s->stack_a[0];
+	res = 0;
+	i = 0;
+	while (i < s->nb_a)
 	{
-		rrb(s);
-		s->r.ind++;
+		if (s->stack_a[i] < tmp)
+		{
+			tmp = s->stack_a[i];
+			res = i;
+			i = 0;
+		}
+		else
+			i++;
 	}
-	pa(s);
+	return (res);
 }
 
-void	do_b(t_stack *s)
+void	a_move(t_stack *s)
 {
-	while (s->r.ind > 0)
+	if (s->to_m < (s->nb_a / 2))
+	{
+		while (s->to_m > 0)
+		{
+			ra(s);
+			s->to_m--;
+			s->m--;
+		}
+	}
+	else
+	{
+		while (s->to_m < s->nb_a)
+		{
+			rra(s);
+			s->to_m++;
+			s->m--;
+		}
+	}
+	while (s->m > 0)
 	{
 		rb(s);
-		s->r.ind--;
+		s->m--;
 	}
-	pa(s);
+	pb(s);
 }
 
-void	do_c_e(t_stack *s)
+void	b_move(t_stack *s)
 {
-	int	i;
-
-	i = 0;
-	if (s->r.c == 'c')
+	if (s->to_m < (s->nb_a / 2))
 	{
-		while (s->r.max < s->nb_a)
-		{
-			rra(s);
-			i++;
-			s->r.max++;
-		}
-		i++;
-		do_a(s);
-		while (i > 0)
+		while (s->to_m > 0)
 		{
 			ra(s);
-			i--;
+			s->to_m--;
+			s->m--;
 		}
 	}
 	else
 	{
-		while (s->r.max > 0)
-		{
-			i++;
-			ra(s);
-			s->r.max--;
-		}
-		do_a(s);
-		while (i > 0)
+		while (s->to_m < s->nb_a)
 		{
 			rra(s);
-			i--;
+			s->to_m++;
+			s->m--;
 		}
 	}
+	while (s->m > 0)
+	{
+		rrb(s);
+		s->m--;
+	}
+	pb(s);
 }
 
-void	do_d_f(t_stack *s)
+void	c_move(t_stack *s)
 {
-	int	i;
-
-	i = 0;
-	if (s->r.c == 'd')
+	if (s->to_m < (s->nb_a / 2))
 	{
-		while (s->r.max < s->nb_a)
-		{
-			rra(s);
-			i++;
-			s->r.max++;
-		}
-		i++;
-		do_b(s);
-		while (i > 0)
+		while (s->to_m > 0)
 		{
 			ra(s);
-			i--;
+			s->to_m--;
+			s->m--;
 		}
 	}
 	else
 	{
-		while (s->r.max > 0)
-		{
-			ra(s);
-			i++;
-			s->r.max--;
-		}
-		do_b(s);
-		while (i > 0)
+		while (s->to_m < s->nb_a)
 		{
 			rra(s);
-			i--;
+			s->to_m++;
+			s->m--;
 		}
 	}
+	while (s->m > 0)
+	{
+		rrb(s);
+		s->m--;
+	}
+	pb(s);
+}
+
+void	d_move(t_stack *s)
+{
+	if (s->to_m < (s->nb_a / 2))
+	{
+		while (s->to_m > 0)
+		{
+			ra(s);
+			s->to_m--;
+			s->m--;
+		}
+	}
+	else
+	{
+		while (s->to_m < s->nb_a)
+		{
+			rra(s);
+			s->to_m++;
+			s->m--;
+		}
+	}
+	while (s->m > 0)
+	{
+		rb(s);
+		s->m--;
+	}
+	pb(s);
 }

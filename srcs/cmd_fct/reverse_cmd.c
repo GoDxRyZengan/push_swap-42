@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse_cmd.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hucoulon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/20 22:26:00 by hucoulon          #+#    #+#             */
+/*   Updated: 2022/03/20 22:26:04 by hucoulon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../../include/push_swap.h"
 
 void	rra(t_stack *s)
@@ -16,7 +27,7 @@ void	rra(t_stack *s)
 		}
 		s->stack_a[0] = swap;
 	}
-	printf("rra\n");
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack *s)
@@ -35,12 +46,12 @@ void	rrb(t_stack *s)
 		}
 		s->stack_b[0] = swap;
 	}
-	printf("rrb\n");
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack *s)
 {
 	rra(s);
 	rrb(s);
-	printf("rrr\n");
+	write(1, "rrr\n", 4);
 }

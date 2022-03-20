@@ -1,22 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   easy_algo.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hucoulon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/20 23:03:29 by hucoulon          #+#    #+#             */
+/*   Updated: 2022/03/20 23:03:31 by hucoulon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../../include/push_swap.h"
-
-int	check_smaller(t_stack *s, int j)
-{
-	int	i;
-
-	i = 0;
-	if (i == j)
-			i++;
-	while (s->stack_a[j] < s->stack_a[i] && (i < s->nb_a))
-	{
-		if (i + 1 == j)
-			i++;
-		i++;
-	}
-	if (i == s->nb_a)
-		return (0);
-	return (1);
-}
 
 void	three_algo(t_stack *s)
 {
@@ -40,13 +33,7 @@ void	push_smaller(t_stack *s)
 {
 	int	i;
 
-	i = 0;
-	while (i < s->nb_a)
-	{
-		if (check_smaller(s, i) == 0)
-			break;
-		i++;
-	}
+	i = find_smallest_a(s);
 	if (i < 3 && s->nb_a)
 	{
 		while (i != 0)
