@@ -31,6 +31,29 @@ int	check_duplicate(char **argv, char *str, int i)
 	return (0);
 }
 
+int	check_duplicate_spe(int *str, int max)
+{
+	int	j;
+	int	i;
+
+	i = 0;
+	while (i < max)
+	{
+		j = 0;
+		while (j < max)
+		{
+			if (i == j)
+				j++;
+			if (str[i] == str[j])
+				return (1);
+			else
+				j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
 int	is_int(char *str)
 {
 	int	i;
@@ -66,7 +89,7 @@ int	check_arg(char **argv)
 			return (1);
 		i++;
 	}
-	i = 1;
+	i = 0;
 	while (argv[i])
 	{
 		if (check_duplicate(argv, argv[i], i) == 1)

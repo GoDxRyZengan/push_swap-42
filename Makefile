@@ -13,7 +13,6 @@ SRCS =	./srcs/main.c \
 		./srcs/algo/algo_utils.c \
 		./srcs/algo/algo_utils_2.c \
 		./srcs/algo/algo_utils_3.c \
-		./print_stack.c \
 
 OBJS	= ${SRCS:.c=.o}
 
