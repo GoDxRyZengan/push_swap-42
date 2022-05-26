@@ -16,18 +16,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# define BUFFER_SIZE 42
-
-typedef struct s_cmd t_cmd;
-struct	s_cmd
-{
-	char	*str;
-	t_cmd	*next;
-};
+# define BUFFER_SIZE 4
 
 typedef struct s_stack
 {
-	t_cmd	*first_cmd;
 	int		*stack_a;
 	int		*stack_b;
 	int		nb_a;
@@ -50,6 +42,8 @@ void		error(int i, t_stack *s);
 void		push_swap(t_stack *s);
 int			check_duplicate_spe(int *str, int max);
 int			check_if_right(t_stack *s);
+int			ft_swap_b(t_stack *s, int *swap_b);
+int			ft_swap_a(t_stack *s, int *swap_a);
 void		sa(t_stack *s);
 void		sb(t_stack *s);
 void		ss(t_stack *s);
@@ -61,6 +55,17 @@ void		rrb(t_stack *s);
 void		rrr(t_stack *s);
 void		pa(t_stack *s);
 void		pb(t_stack *s);
+void		bonus_sa(t_stack *s);
+void		bonus_sb(t_stack *s);
+void		bonus_ss(t_stack *s);
+void		bonus_ra(t_stack *s);
+void		bonus_rb(t_stack *s);
+void		bonus_rr(t_stack *s);
+void		bonus_rra(t_stack *s);
+void		bonus_rrb(t_stack *s);
+void		bonus_rrr(t_stack *s);
+void		bonus_pa(t_stack *s);
+void		bonus_pb(t_stack *s);
 void		three_algo(t_stack *s);
 void		five_algo(t_stack *s);
 void		new_algo(t_stack *s);
@@ -79,7 +84,6 @@ void		a_move(t_stack *s);
 void		b_move(t_stack *s);
 void		c_move(t_stack *s);
 void		d_move(t_stack *s);
-
-int	main(int argc, char **argv);
+int			main(int argc, char **argv);
 
 #endif 

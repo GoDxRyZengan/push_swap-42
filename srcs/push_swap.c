@@ -20,8 +20,6 @@ int	check_if_right(t_stack *s)
 	j = 1;
 	if (s->nb_a == 1)
 		return (0);
-	if (s->nb_b != 0)
-		return (1);
 	while (i < (s->nb_a - 1))
 	{
 		j = i + 1;
