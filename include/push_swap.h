@@ -16,8 +16,18 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+# define BUFFER_SIZE 42
+
+typedef struct s_cmd t_cmd;
+struct	s_cmd
+{
+	char	*str;
+	t_cmd	*next;
+};
+
 typedef struct s_stack
 {
+	t_cmd	*first_cmd;
 	int		*stack_a;
 	int		*stack_b;
 	int		nb_a;
@@ -69,4 +79,7 @@ void		a_move(t_stack *s);
 void		b_move(t_stack *s);
 void		c_move(t_stack *s);
 void		d_move(t_stack *s);
+
+int	main(int argc, char **argv);
+
 #endif 
